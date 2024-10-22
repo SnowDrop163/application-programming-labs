@@ -38,35 +38,19 @@ def read_file(filename: str) -> str:
 
 def find_female_names(content: str) -> set:
     """
-
-    Находит все женские имена, в заданном тексте.
+    
+    Находит все женские имена, начинающиеся с буквы A, в заданном тексте.
 
     Arg:
     content (str): Текст, в котором нужно выполнить поиск.
 
     Return:
-    set: Множество женских имен.
+    set: Множество женских имен, начинающихся с буквы A.
 
     """
-    pattern = r'Имя: ([А-Яа-я]+)\s*Пол: Женский'
+    pattern = r'Имя: (А\w+)\sПол: Женский'
     matches = re.findall(pattern, content)
-    female_names = find_names_start_a(matches)
-    return female_names
-
-
-def find_names_start_a(matches: list) -> set:
-    """
-
-    Находит все имена, начинающиеся с буквы А в заданном списке имен.
-
-    Arg:
-    matches (list): Список имен.
-
-    Return:
-    set: Множество имен, начинающихся с буквы А.
-
-    """
-    female_names = {name for name in matches if (name.startswith('А') or name.startswith('а'))}
+    female_names = set(match for match in matches)
     return female_names
 
 
@@ -85,7 +69,6 @@ def print_female_names(names: set) -> None:
             print(name)
     else:
         print("Нет женских имен, начинающихся с буквы А.")
-
 
 def main() -> None:
     try:
