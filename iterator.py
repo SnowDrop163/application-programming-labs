@@ -7,7 +7,6 @@ class ImageIterator:
 
         """
         Инициализация объекта ImageIterator с заданным файлом аннотаций.
-
         Arg:
         annotation_file (str): Путь к файлу аннотаций.
         """
@@ -29,7 +28,7 @@ class ImageIterator:
             next(reader)
             self.image_paths = [row[0] for row in reader]
 
-    def __iter__(self):
+    def __iter__(self) -> 'ImageIterator':
 
         """
                Метод, который возвращает сам объект ImageIterator при итерации над ним.
