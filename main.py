@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import argparse
 import os
 
-def read_image(image_path) -> tuple:
+def read_image(image_path: str) -> tuple:
 
     """
     Функция для чтения изображения из указанного пути.
@@ -24,7 +24,7 @@ def read_image(image_path) -> tuple:
     except Exception as e:
         raise RuntimeError(f"Error (image reader): {e}")
 
-def plot_histogram(image) -> None:
+def plot_histogram(image: np.ndarray) -> None:
 
     """
     Функция для построения гистограммы цветовых каналов изображения.
@@ -45,7 +45,7 @@ def plot_histogram(image) -> None:
     plt.legend(['Blue', 'Green', 'Red'])
     plt.show()
 
-def split_and_save_channels(image, output_dir) -> list:
+def split_and_save_channels(image: np.ndarray, output_dir: str) -> list:
 
     """
     Функция для разделения цветовых каналов изображения и сохранения их в указанной директории.
@@ -70,7 +70,7 @@ def split_and_save_channels(image, output_dir) -> list:
     except Exception as e:
         raise RuntimeError(f"Error (save channel): {e}")
 
-def display_image(image, title="Original image", width=None, height=None) -> None:
+def display_image(image: np.ndarray, title: str = "Original image", width: str = None, height: int = None) -> None:
 
     """
     Функция для отображения изображения с заданным заголовком и его размером.
@@ -87,7 +87,7 @@ def display_image(image, title="Original image", width=None, height=None) -> Non
     plt.axis('off')
     plt.show()
 
-def main(image_path, output_dir) -> None:
+def main(image_path: str, output_dir: str) -> None:
 
     """
     Основная функция для обработки изображения: чтение, построение гистограммы,
