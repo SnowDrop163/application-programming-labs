@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import argparse
 import os
 
-def read_image(image_path):
+def read_image(image_path) -> tuple:
 
     """
     Функция для чтения изображения из указанного пути.
@@ -24,13 +24,13 @@ def read_image(image_path):
     except Exception as e:
         raise RuntimeError(f"Error (image reader): {e}")
 
-def plot_histogram(image):
+def plot_histogram(image) -> None:
 
     """
     Функция для построения гистограммы цветовых каналов изображения.
 
     Arg:
-    image (numpy.ndarray): Изображение, для которого будет построена гистограмма.
+    image: Изображение, для которого будет построена гистограмма.
     """
 
     colors = ('b', 'g', 'r')
@@ -45,17 +45,17 @@ def plot_histogram(image):
     plt.legend(['Blue', 'Green', 'Red'])
     plt.show()
 
-def split_and_save_channels(image, output_dir):
+def split_and_save_channels(image, output_dir) -> list:
 
     """
     Функция для разделения цветовых каналов изображения и сохранения их в указанной директории.
 
     Arg:
-    image (numpy.ndarray): Исходное изображение для разделения.
-    output_dir (str): Директория для сохранения отдельных каналов.
+    image: Исходное изображение для разделения.
+    output_dir : Директория для сохранения отдельных каналов.
 
     Returns:
-    saved_channels (list): Список кортежей, содержащих имена и массивы сохраненных каналов.
+    saved_channels: Список кортежей, содержащих имена и массивы сохраненных каналов.
     """
 
     try:
@@ -70,7 +70,7 @@ def split_and_save_channels(image, output_dir):
     except Exception as e:
         raise RuntimeError(f"Error (save channel): {e}")
 
-def display_image(image, title="Original image", width=None, height=None):
+def display_image(image, title="Original image", width=None, height=None) -> None:
 
     """
     Функция для отображения изображения с заданным заголовком и его размером.
@@ -87,7 +87,7 @@ def display_image(image, title="Original image", width=None, height=None):
     plt.axis('off')
     plt.show()
 
-def main(image_path, output_dir):
+def main(image_path, output_dir) -> None:
 
     """
     Основная функция для обработки изображения: чтение, построение гистограммы,
