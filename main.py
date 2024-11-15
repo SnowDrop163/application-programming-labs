@@ -5,7 +5,7 @@ from icrawler.builtin import GoogleImageCrawler
 from iterator import ImageIterator
 
 
-def download_images(keyword, download_folder, num_images=100) -> list[str]:
+def download_images(keyword: str, download_folder: str, num_images: int = 100) -> list[str]:
 
     """
     Функция для скачивания изображений по заданному ключевому слову в указанную папку.
@@ -29,7 +29,7 @@ def download_images(keyword, download_folder, num_images=100) -> list[str]:
     return image_paths
 
 
-def save_annotation(image_paths, annotation_file):
+def save_annotation(image_paths: list[str], annotation_file: str):
 
     """
         Функция для сохранения аннотаций (абсолютный и относительный пути) к изображениям в CSV-файл.
